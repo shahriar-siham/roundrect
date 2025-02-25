@@ -40,7 +40,7 @@ round_rect(
 ## Parameters:
 - `position`: A vector specifying the x and y positions of the rectangle (default: `c(0.5, 0.5)`).
 - `scale`: A vector specifying the width and height of the rectangle (default: `c(1, 1)`).
-- `corners`: A vector specifying the radii of the corners (clockwise) (default: `numeric(4)`).
+- `corners`: A vector specifying the radii of the corners (clockwise) (default: `c(0.15, 0.15, 0.15, 0.15)`).
 - `opacity`: Opacity of the rectangle (default: `1`).
 - `fill`: The fill color of the rectangle (default: `NA`).
 - `border`: The border color of the rectangle (default: `"black"`).

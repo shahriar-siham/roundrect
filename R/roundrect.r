@@ -151,7 +151,7 @@ adjust_radii <- function(r1, r2, side_length) {
 round_rect <- function(
     position = c(0.5, 0.5),
     scale = c(1, 1),
-    corners = numeric(4),
+    corners = c(0.15, 0.15, 0.15, 0.15),
     opacity = 1,
     fill = NA,
     border = "black",
