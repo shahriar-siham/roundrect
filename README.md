@@ -1,4 +1,4 @@
-<img src="https://em-content.zobj.net/source/microsoft-teams/363/waffle_1f9c7.png" alt="Logo" width="100" height="100">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Red%20Square.png" alt="Logo" width="100" height="100">
 
 # `roundrect` - Custom Rounded Rectangle Drawing in R
 
@@ -50,7 +50,7 @@ round_rect(
 - `output_as_grob`: Whether to return the grob object instead of drawing it (default: `FALSE`).
 - `name`: The name of the grob object (optional).
 
-# License
+## License
 
 This package is licensed under the MIT License.
 
