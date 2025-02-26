@@ -29,13 +29,18 @@ devtools::install_github("shahriar-siham/roundrect")
 library(roundrect)
 
 round_rect(
-  fill = "red", 
-  border = "black", 
-  opacity = 0.5, 
+  fill = "#e43a59", 
+  border = NA, 
   scale = c(0.5, 0.5), 
-  corners = c(0.25, 0.15, 0.25, 0.15)
+  corners = c(0.25, 0.05, 0.25, 0.05)
 )
 ```
+
+<p align="center">
+  <img src="https://github.com/shahriar-siham/roundrect/blob/main/example_image/roundrect_example_ouput.png" alt="Example: Rounded Rectangle" width="500">
+  <br>
+  <em>Figure: Output of the example code.</em>
+</p>
 
 ## Parameters:
 - `position`: A vector specifying the x and y positions of the rectangle (default: `c(0.5, 0.5)`).
