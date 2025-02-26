@@ -3,9 +3,12 @@ Title: Draw Rounded Rectangles with Independent Corner Radii
 Version: 0.0.0.9000
 Authors@R: 
     person("Shahriar", "Siham", , "shahriar.siham@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: Provides a function to draw rounded rectangles with customizable, independent corner radii. 
+    Unlike the default `grid` package's rounded rectangles, this allows setting different 
+    radii for each corner. The function also features simplified parameter names for ease of use.
+License: MIT + file LICENSE
 Encoding: UTF-8
+Imports: 
+    grid
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
