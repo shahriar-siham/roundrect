@@ -158,6 +158,8 @@ round_rect <- function(
     border_width = 1,
     border_type = "solid",
     border_cap = "round",
+    gradient_type = "linear",
+    gradient_stops = NULL,
     output_as_grob = FALSE,
     name = NULL) {
   if (!is.numeric(corners) || length(corners) != 4) {
@@ -170,6 +172,33 @@ round_rect <- function(
 
   if (!is.numeric(scale) || length(scale) != 2) {
     stop("Input 'scale' must be a numeric vector of exactly 2 elements.")
+  }
+
+  if (length(fill) == 1 && is.na(fill)) {
+    fill_value <- NA
+  } else if (length(fill) == 1) {
+    fill_value <- fill
+  } else {
+    if (is.null(gradient_stops)) {
+      gradient_stops <- seq(0, 1, length.out = length(fill))
+    }
+
+    if (gradient_type == "linear") {
+      fill_value <- linearGradient(
+        colours = fill,
+        stops = gradient_stops,
+        x1 = 0, y1 = 0,
+        x2 = 0, y2 = 1,
+        default.units = "snpc"
+      )
+    } else if (gradient_type == "radial") {
+      fill_value <- radialGradient(
+        colours = fill,
+        stops = gradient_stops
+      )
+    } else {
+      stop("Unknown gradient_type. Gradients must be 'linear' or 'radial'.")
+    }
   }
 
   # Position
@@ -228,7 +257,7 @@ round_rect <- function(
     r_bl = unit(bottom_left, "snpc"), r_br = unit(bottom_right, "snpc"),
     gp = gpar(
       alpha = opacity,
-      fill = fill,
+      fill = fill_value,
       col = border,
       lwd = border_width,
       lty = border_type,
