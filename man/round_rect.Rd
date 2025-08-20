@@ -47,7 +47,7 @@ round_rect(
 If \code{output_as_grob} is TRUE, returns a grob object representing the rectangle. Otherwise, it draws the rectangle and returns nothing.
 }
 \description{
-An improved version of the \code{grid} package's rounded rectangles, allowing each corner to have a different radius instead of a uniform one. This package also provides more intuitive parameter names for easier usage. Customize fill color, border properties, opacity, and more with a simple function call.
+An improved version of grid's rounded rectangles, allowing each corner to have a different radius instead of a uniform one. Provides intuitive parameter names for easier usage. Customize fill color, border properties, opacity, and more with a simple function call.
 }
 \examples{
 round_rect(

@@ -1,17 +1,7 @@
-#' Rounded rectangle geom for ggplot2
-#'
-#' Draw rectangles with rounded corners in ggplot2 plots.
-#'
-#' @inheritParams ggplot2::geom_col
-#' @param r Numeric (length 1 or 4) or list. Corner radii.
-#'
-#' @return A ggplot2 layer
+#' @import ggplot2
+#' @import grid
+
 #' @export
-#'
-#' @examples
-#' df <- data.frame(x = c("A", "B", "C"), y = c(3, 5, 2))
-#' ggplot(df, aes(x, y)) +
-#'     geom_roundrect(fill = "skyblue", r = 0.2)
 geom_roundrect <- function(mapping = NULL, data = NULL,
                            stat = "identity", position = "stack",
                            ...,
@@ -32,9 +22,6 @@ geom_roundrect <- function(mapping = NULL, data = NULL,
     )
 }
 
-#' @rdname geom_roundrect
-#' @format NULL
-#' @usage NULL
 #' @export
 GeomRoundRect <- ggplot2::ggproto("GeomRoundRect", ggplot2::Geom,
     required_aes = c("x", "y"),
