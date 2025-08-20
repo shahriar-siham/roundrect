@@ -57,6 +57,7 @@ ggplot(df, aes(x, y)) +
   theme_minimal()
 ```
 <br>
+<br>
 
 <p align="center">
   <img src="https://github.com/shahriar-siham/roundrect/blob/main/example_image/roundrect_geom_roundrect_preview.png" alt="Example: geom_roundrect() with ggplot2" width="500">
