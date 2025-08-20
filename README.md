@@ -57,12 +57,14 @@ ggplot(df, aes(x, y)) +
   theme_minimal()
 ```
 <br>
+
 <p align="center">
   <img src="https://github.com/shahriar-siham/roundrect/blob/main/example_image/roundrect_geom_roundrect_preview.png" alt="Example: geom_roundrect() with ggplot2" width="500">
   <br>
 </p>
 
 <br>
+
 ## Parameters:
 - `position`: A vector specifying the x and y positions of the rectangle (default: `c(0.5, 0.5)`).
 - `scale`: A vector specifying the width and height of the rectangle (default: `c(1, 1)`).
