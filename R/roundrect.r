@@ -1,5 +1,5 @@
 #' @import grid
-library(grid)
+#' @import ggplot2
 
 # Function to generate a single arc (given start and end angles)
 generate_arc <- function(

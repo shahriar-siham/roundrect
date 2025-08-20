@@ -9,7 +9,8 @@ Description: An improved version of the `grid` package's rounded rectangles,
     Customize fill color, border properties, opacity, and more with a simple function call.
 License: MIT + file LICENSE
 Encoding: UTF-8
-Imports: 
+Imports:
+    ggplot2, 
     grid
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

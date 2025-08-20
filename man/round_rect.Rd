@@ -7,13 +7,15 @@
 round_rect(
   position = c(0.5, 0.5),
   scale = c(1, 1),
-  corners = numeric(4),
+  corners = c(0.15, 0.15, 0.15, 0.15),
   opacity = 1,
   fill = NA,
   border = "black",
   border_width = 1,
   border_type = "solid",
   border_cap = "round",
+  gradient_type = "linear",
+  gradient_stops = NULL,
   output_as_grob = FALSE,
   name = NULL
 )
