@@ -102,21 +102,6 @@ rounded_rect_grob <- function(
   )
 }
 
-# Function to check if any pair of radii exceeds the limit
-check_condition <- function(r1, r2, side_length) {
-  r1 + r2 > side_length
-}
-
-# Function to adjust radii proportionally
-adjust_radii <- function(r1, r2, side_length) {
-  if (check_condition(r1, r2, side_length)) {
-    scale_factor <- side_length / (r1 + r2)
-    r1 <- r1 * scale_factor
-    r2 <- r2 * scale_factor
-  }
-  list(r1 = r1, r2 = r2)
-}
-
 #' Draw Rounded Rectangles with Independent Corner Radii
 #'
 #' An improved version of the `grid` package's rounded rectangles, allowing each corner to have a different radius instead of a uniform one. This package also provides more intuitive parameter names for easier usage. Customize fill color, border properties, opacity, and more with a simple function call.
@@ -215,38 +200,19 @@ round_rect <- function(
   bottom_right <- corners[3]
   bottom_left <- corners[4]
 
-  # Iteratively adjust radii until all pairs satisfy the condition
-  while (TRUE) {
-    condition_top <- check_condition(top_left, top_right, width)
-    condition_right <- check_condition(top_right, bottom_right, height)
-    condition_bottom <- check_condition(bottom_right, bottom_left, width)
-    condition_left <- check_condition(bottom_left, top_left, height)
+  # Proportional clamping of corner radii
+  ratios <- c(
+    if (top_left + top_right > 0) width / (top_left + top_right) else 1,
+    if (bottom_left + bottom_right > 0) width / (bottom_left + bottom_right) else 1,
+    if (top_left + bottom_left > 0) height / (top_left + bottom_left) else 1,
+    if (top_right + bottom_right > 0) height / (top_right + bottom_right) else 1
+  )
+  s <- min(1, ratios, na.rm = TRUE)
 
-    if (
-      !condition_top &&
-        !condition_right &&
-        !condition_bottom &&
-        !condition_left
-    ) {
-      break
-    }
-
-    # Adjust radii for all pairs in a single step
-    adjusted_top <- adjust_radii(top_left, top_right, width)
-    adjusted_right <- adjust_radii(top_right, bottom_right, height)
-    adjusted_bottom <- adjust_radii(bottom_right, bottom_left, width)
-    adjusted_left <- adjust_radii(bottom_left, top_left, height)
-
-    # Update radii after all adjustments
-    top_left <- adjusted_top$r1
-    top_right <- adjusted_top$r2
-    top_right <- adjusted_right$r1
-    bottom_right <- adjusted_right$r2
-    bottom_right <- adjusted_bottom$r1
-    bottom_left <- adjusted_bottom$r2
-    bottom_left <- adjusted_left$r1
-    top_left <- adjusted_left$r2
-  }
+  top_left <- top_left * s
+  top_right <- top_right * s
+  bottom_right <- bottom_right * s
+  bottom_left <- bottom_left * s
 
   grob <- rounded_rect_grob(
     x = x,
