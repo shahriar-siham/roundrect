@@ -39,8 +39,9 @@ round_rect(
 <p align="center">
   <img src="https://github.com/shahriar-siham/roundrect/blob/main/example_image/roundrect_example_ouput.png" alt="Example: Rounded Rectangle" width="500">
   <br>
-  <em>Figure: Output of the example code.</em>
 </p>
+
+## Integration with ggplot2
 
 `roundrect` also integrates with **ggplot2**, allowing you to draw rounded rectangles directly in plots. Simply use `geom_roundrect()` as a drop-in replacement for `geom_col()`.
 
@@ -57,7 +58,8 @@ ggplot(df, aes(x, y)) +
 ```
 
 <p align="center">
-  ![geom_roundrect() Example](example_image/roundrect_geom_roundrect_preview.png)
+  <img src="https://github.com/shahriar-siham/roundrect/blob/main/example_image/roundrect_geom_roundrect_preview.png" alt="Example: geom_roundrect() with ggplot2" width="500">
+  <br>
 </p>
 
 ## Parameters:
