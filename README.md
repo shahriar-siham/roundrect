@@ -42,6 +42,24 @@ round_rect(
   <em>Figure: Output of the example code.</em>
 </p>
 
+`roundrect` also integrates with **ggplot2**, allowing you to draw rounded rectangles directly in plots. Simply use `geom_roundrect()` as a drop-in replacement for `geom_col()`.
+
+```R
+library(roundrect)
+library(ggplot2)
+library(grid)
+
+df <- data.frame(x = c("A", "B", "C"), y = c(3, 5, 2))
+
+ggplot(df, aes(x, y)) + 
+  geom_roundrect(fill = grid::linearGradient(c('#ff304e', '#ef407c')), r = 0.075) +
+  theme_minimal()
+```
+
+<p align="center">
+  ![geom_roundrect() Example](example_image/roundrect_geom_roundrect_preview.png)
+</p>
+
 ## Parameters:
 - `position`: A vector specifying the x and y positions of the rectangle (default: `c(0.5, 0.5)`).
 - `scale`: A vector specifying the width and height of the rectangle (default: `c(1, 1)`).
